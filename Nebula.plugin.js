@@ -12,7 +12,7 @@ module.exports = class Nebula {
             classes = BdApi.findModuleByProps("iconWrapper","clickable"),
             tooltip = BdApi.findModuleByProps("TooltipContainer").TooltipContainer,
             left = BdApi.findModuleByProps("guilds", "container", "sidebar")
-        BdApi.Patcher.after("nebula-inject", HeaderBarContainer, "render", (_, res) => {
+        BdApi.Patcher.after("nebula-inject", HeaderBarContainer, "render", (thisObject, _, res) => {
             res.props.children.splice(0, 0, 
                 BdApi.React.createElement(tooltip, {
                     text: "Hide", 
